@@ -1,0 +1,46 @@
+ion-header {
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  --padding-end: 20px;
+  --padding-start: 20px;
+}
+
+ion-title {
+  font-size: 0.8em;
+}
+
+ion-header {
+  background-color: primary;
+}
+
+ion-label {
+  width: 130px;
+}
+
+ion-input, ion-select {
+  color: gray;
+  text-align: right;
+}
+.square {  
+  width: 100px;
+  height: 100px;
+  background: rgba(14, 213, 67, 0.5);
+  margin: 10px;
+}
+ion-content{
+  --ion-background-color:rgb(238, 255, 239);
+}
+h3{
+  font-family: fantasy;
+  color: green;
+}
+h1{
+  font-family: fantasy;
+}
+ion-card-title{
+  color: green;
+  font-family: fantasy;
+}
+ion-card-content{
+  color: green;
+}

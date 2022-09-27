@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title #titulo class="ion-text-left ion-text">
+      <div>
+        <img src="https://www.shinygreenrobot.com/wp-content/uploads/2019/06/logo_green_release.png" width="90" height="80">
+        <h1>GreenBot</h1>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding-horizontal" color=#28ba62>
+  <ion-title class="ion-padding-top">
+      <h1 #bienvenido class="ion-text-center">¡Bienvenid@!</h1>
+    <ion-label #user>
+      <p style="font-size: 25px;" class="ion-text-center" *ngIf="usuario.nombreUsuario === 'atorres@duocuc.cl'">Ana Torres Leiva</p>
+      <p style="font-size: 25px;" class="ion-text-center" *ngIf="usuario.nombreUsuario === 'avalenzuela@duocuc.cl'">Alberto Valenzuela Nuñez</p>
+      <p style="font-size: 25px;" class="ion-text-center" *ngIf="usuario.nombreUsuario === 'cfuentes@duocuc.cl'">Carla Fuentes González</p>
+    </ion-label>
+  </ion-title>
+  <div class="ion-text-center">
+    <input #fileinput hidden id="input-file" type="file" accept="image/*;capture=camera" 
+    (change)="verificarArchivoConQR($event.target.files)" />
+    <h3 class="ion-text-center">¡Escanea el código QR para registrar tu asistencia!</h3>
+    <ion-button color="success" *ngIf="!escaneando" (click)="comenzarEscaneoQR()">
+      <ion-icon slot="start" name="videocam-outline"></ion-icon>
+      Escanear QR
+    </ion-button>
+    <ion-button color="success" *ngIf="escaneando" (click)="detenerEscaneoQR()">
+      <ion-icon slot="start" name="stop-circle-outline"></ion-icon>
+      Detener cámara
+    </ion-button>
+    <ion-button color="success" (click)="limpiarDatos()">
+      <ion-icon slot="start" name="trash-outline"></ion-icon>
+      Limpiar pantalla
+    </ion-button>
+    <video #video [hidden]="!escaneando" width="100%"></video>
+    <canvas #canvas hidden></canvas>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Código QR</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Datos de la asignatura: {{ datosQR }}
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div align="center">
+    <a data-flickr-embed="true" href="https://www.flickr.com/photos/196379951@N05/52325214786/in/dateposted-public/" title="image"><img src="https://live.staticflickr.com/65535/52325214786_0609aa06a0_k.jpg" width="300" height="80" alt="image"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+  </div>
+</ion-content>
